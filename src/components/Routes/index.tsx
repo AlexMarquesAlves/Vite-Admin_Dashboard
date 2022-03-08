@@ -1,17 +1,17 @@
 import { ReactNode } from "react";
-import { Route, Routes as Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Dashboard from "../../pages/Dashboard";
 import Customers from "../../pages/Customers";
 interface RoutesProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 function Routes({ children }: RoutesProps) {
   return (
     <Switch>
-      <Route path="/" element={Dashboard} />
-      <Route path="/customers" element={Customers} />
+      <Route path="/" component={Dashboard} />
+      <Route path="/customers" component={Customers} />
     </Switch>
   );
 }
