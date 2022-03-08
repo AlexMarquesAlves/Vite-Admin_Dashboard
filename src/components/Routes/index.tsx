@@ -10,7 +10,7 @@ interface RoutesProps {
 function Routes({ children }: RoutesProps) {
   return (
     <Switch>
-      <Route path="/" component={Dashboard} />
+      <Route path="/" exact component={Dashboard} />
       <Route path="/customers" component={Customers} />
     </Switch>
   );
