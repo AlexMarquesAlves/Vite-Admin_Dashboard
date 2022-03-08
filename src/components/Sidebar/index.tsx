@@ -6,7 +6,17 @@ import logo from "../../assets/images/logo.png";
 
 import sidebar_items from "../../assets/JsonData/sidebar_routes.json";
 
-const SidebarItem = (props) => {
+const SidebarItem = (props: {
+  active: any;
+  icon: string | undefined;
+  title:
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+}) => {
   const active = props.active ? "active" : "";
 
   return (
@@ -19,7 +29,7 @@ const SidebarItem = (props) => {
   );
 };
 
-function Sidebar(props) {
+function Sidebar(props: { location: { pathname: string } }) {
   const activeItem = sidebar_items.findIndex(
     (item) => item.route === props.location.pathname
   );
