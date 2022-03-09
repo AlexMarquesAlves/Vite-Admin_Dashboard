@@ -35,7 +35,7 @@ const renderNotifications = (
   </div>
 );
 
-const renderUserToggle = (user) => (
+const renderUserToggle = (user: { display_name: any; image: any }) => (
   <div className="topnav__right-user">
     <div className="topnav__right-user__image">
       <img src={user.image} alt="User pic" />
@@ -44,7 +44,19 @@ const renderUserToggle = (user) => (
   </div>
 );
 
-const renderUserMenu = (item, index) => (
+const renderUserMenu = (
+  item: {
+    icon: string | undefined;
+    content:
+      | boolean
+      | ReactChild
+      | ReactFragment
+      | ReactPortal
+      | null
+      | undefined;
+  },
+  index: Key | null | undefined
+) => (
   <Link to="/" key={index}>
     <div className="notification-item">
       <i className={item.icon}></i>
@@ -80,7 +92,7 @@ function TopNav({ children }: TopNavProps) {
           {/* Dropdown here */}
         </div>
         <div className="topnav__right-item">
-          <Dropdown />
+          {/* <Dropdown /> */}
           {/* theme settings */}
         </div>
       </div>
