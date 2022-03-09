@@ -3,6 +3,7 @@ import statusCards from "../../assets/JsonData/status-card-data.json";
 import StatusCard from "../../components/StatusCard";
 import Chart from "react-apexcharts";
 import { Link } from "react-router-dom";
+import Table from "../../components/Table";
 
 interface DashboardProps {
   children: ReactNode;
@@ -52,6 +53,37 @@ const chartOption: any = {
   },
 };
 
+const topCustomers = {
+  head: ["user", "total orders", "total spending"],
+  body: [
+    {
+      username: "john doe",
+      order: "490",
+      price: "$15,870",
+    },
+    {
+      username: "frank iva",
+      order: "250",
+      price: "$12,251",
+    },
+    {
+      username: "anthony baker",
+      order: "120",
+      price: "$10,840",
+    },
+    {
+      username: "frank iva",
+      order: "110",
+      price: "$9,251",
+    },
+    {
+      username: "anthony baker",
+      order: "80",
+      price: "$8,840",
+    },
+  ],
+};
+
 function Dashboard({ children }: DashboardProps) {
   return (
     <div>
@@ -88,7 +120,9 @@ function Dashboard({ children }: DashboardProps) {
               <div className="card__header">
                 <h3>Top customers</h3>
               </div>
-              <div className="card__body">{/* table */}</div>
+              <div className="card__body">
+                <Table />
+              </div>
               <div className="card__footer">
                 <Link to="/">view all</Link>
               </div>
