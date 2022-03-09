@@ -1,12 +1,30 @@
-import { ReactNode } from "react";
+import { ReactChild, ReactFragment, ReactNode, ReactPortal } from "react";
 
 import "./styles.scss";
 
 interface DropdownProps {
   children?: ReactNode;
+  icon: string | undefined;
+  badge: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
+  customToggle: () =>
+    | boolean
+    | ReactChild
+    | ReactFragment
+    | ReactPortal
+    | null
+    | undefined;
+  contentData: any[];
+  renderItems: (arg0: any, arg1: any) => any;
+  renderFooter: () =>
+    | boolean
+    | ReactChild
+    | ReactFragment
+    | ReactPortal
+    | null
+    | undefined;
 }
 
-function Dropdown(props) {
+function Dropdown(props: DropdownProps) {
   return (
     <div className="dropdown">
       <button className="dropdown__toggle">
