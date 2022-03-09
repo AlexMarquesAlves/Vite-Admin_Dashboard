@@ -86,6 +86,14 @@ const topCustomers = {
 
 const renderCustomerHead = (item, index) => <th key={index}>{item}</th>;
 
+const renderCustomerBody = (item, index) => (
+  <tr key={index}>
+    <td>{item.username}</td>
+    <td>{item.order}</td>
+    <td>{item.price}</td>
+  </tr>
+);
+
 function Dashboard({ children }: DashboardProps) {
   return (
     <div>
