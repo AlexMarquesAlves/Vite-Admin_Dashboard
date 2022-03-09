@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Key, ReactChild, ReactFragment, ReactNode, ReactPortal } from "react";
 import statusCards from "../../assets/JsonData/status-card-data.json";
 import StatusCard from "../../components/StatusCard";
 import Chart from "react-apexcharts";
@@ -84,9 +84,37 @@ const topCustomers = {
   ],
 };
 
-const renderCustomerHead = (item, index) => <th key={index}>{item}</th>;
+const renderCustomerHead = (
+  item: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined,
+  index: Key | null | undefined
+) => <th key={index}>{item}</th>;
 
-const renderCustomerBody = (item, index) => (
+const renderCustomerBody = (
+  item: {
+    username:
+      | boolean
+      | ReactChild
+      | ReactFragment
+      | ReactPortal
+      | null
+      | undefined;
+    order:
+      | boolean
+      | ReactChild
+      | ReactFragment
+      | ReactPortal
+      | null
+      | undefined;
+    price:
+      | boolean
+      | ReactChild
+      | ReactFragment
+      | ReactPortal
+      | null
+      | undefined;
+  },
+  index: Key | null | undefined
+) => (
   <tr key={index}>
     <td>{item.username}</td>
     <td>{item.order}</td>
@@ -131,7 +159,12 @@ function Dashboard({ children }: DashboardProps) {
                 <h3>Top customers</h3>
               </div>
               <div className="card__body">
-                <Table />
+                <Table
+                  headData={topCustomers.head}
+                  renderHead={(item, index) => renderCustomerHead(item, index)}
+                  bodyData={topCustomers.body}
+                  renderBody={(item, index) => renderCustomerBody(item, index)}
+                />
               </div>
               <div className="card__footer">
                 <Link to="/">view all</Link>
