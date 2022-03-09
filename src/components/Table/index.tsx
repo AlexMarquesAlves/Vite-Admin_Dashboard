@@ -3,14 +3,17 @@ import { ReactNode } from "react";
 import "./styles.scss";
 
 interface TableProps {
-  children?: ReactNode;
+  headData: any[];
+  renderHead: (arg0: any, arg1: any) => any;
+  bodyData: any[];
+  renderBody: (arg0: any, arg1: any) => any;
 }
 
-function Table({ props }: TableProps) {
+function Table(props: TableProps) {
   return (
     <div className="table-wrapper">
       <table>
-        {props.headData && props.renderHeader ? (
+        {props.headData && props.renderHead ? (
           <thead>
             <tr>
               {props.headData.map((item, index) =>
