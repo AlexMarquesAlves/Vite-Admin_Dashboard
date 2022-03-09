@@ -1,1 +1,43 @@
 /* The component style is inserted here. */
+.topnav {
+  padding: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--topnav-height);
+
+  .topnav__search {
+    position: relative;
+    height: 3.125rem;
+    background: var(--main-bg);
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
+    input {
+      height: 100%;
+      width: 100%;
+      padding: 0.625rem 3.75rem 0.625rem 1.25rem;
+      font-size: 1rem;
+      color: var(--txt-white);
+      background: var(--main-bg);
+    }
+
+    i {
+      font-size: 1.5rem;
+      position: absolute;
+      right: 1.25rem;
+    }
+  }
+
+  .topnav__right {
+    display: flex;
+    align-items: center;
+
+    .topnav__right-item ~ .topnav__right-item {
+      margin-left: 1.875rem;
+    }
+  }
+}
