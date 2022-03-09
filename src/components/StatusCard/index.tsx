@@ -10,11 +10,11 @@ interface StatusCardProps {
 
 function StatusCard(props: StatusCardProps) {
   return (
-    <div className="status-card">
+    <div className="status-card ">
       <div className="status-card__icon">
         <i className={props.icon}></i>
       </div>
-      <div className="status-card__info">
+      <div className="status-card_info">
         <h4>{props.count}</h4>
         <span>{props.title}</span>
       </div>
