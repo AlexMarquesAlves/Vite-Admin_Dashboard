@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import statusCards from "../../assets/JsonData/status-card-data.json";
 import StatusCard from "../../components/StatusCard";
 import Chart from "react-apexcharts";
+import { Link } from "react-router-dom";
 
 interface DashboardProps {
   children: ReactNode;
@@ -79,6 +80,18 @@ function Dashboard({ children }: DashboardProps) {
                 type="line"
                 height="100%"
               />
+            </div>
+          </div>
+
+          <div className="col-4">
+            <div className="card">
+              <div className="card__header">
+                <h3>Top customers</h3>
+              </div>
+              <div className="card__body">{/* table */}</div>
+              <div className="card__footer">
+                <Link to="/">view all</Link>
+              </div>
             </div>
           </div>
         </div>
