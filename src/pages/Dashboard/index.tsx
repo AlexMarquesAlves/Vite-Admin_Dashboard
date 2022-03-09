@@ -84,6 +84,8 @@ const topCustomers = {
   ],
 };
 
+const renderCustomerHead = (item, index) => <th key={index}>{item}</th>;
+
 function Dashboard({ children }: DashboardProps) {
   return (
     <div>
