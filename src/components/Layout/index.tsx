@@ -3,6 +3,7 @@ import "./styles.scss";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
+import TopNav from "../TopNav";
 import Sidebar from "../Sidebar";
 import Routes from "../Routes";
 
@@ -18,6 +19,7 @@ function Layout({ children }: LayoutProps) {
           <div className="layout">
             <Sidebar {...props} />
             <div className="layout__content">
+              <TopNav />
               <div className="layout__content-main">
                 <Routes />
               </div>

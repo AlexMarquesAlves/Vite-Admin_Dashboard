@@ -1,18 +1,25 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
-import './styles.scss';
+import "./styles.scss";
 
 interface TopNavProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 function TopNav({ children }: TopNavProps) {
   return (
-    <>
-      <h1>TopNav</h1>
-      {children}
-    </>
+    <div className="topnav">
+      <div className="topnav__search">
+        <input type="text" placeholder="Search here..." />
+        <i className="bx bx-search"></i>
+      </div>
+      <div className="topnav__right">
+        <div className="topnav__right-item">{/* Dropdown here */}</div>
+        <div className="topnav__right-item">{/* Dropdown here */}</div>
+        <div className="topnav__right-item">{/* theme settings */}</div>
+      </div>
+    </div>
   );
-};
+}
 
 export default TopNav;
