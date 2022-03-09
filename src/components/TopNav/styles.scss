@@ -1,4 +1,3 @@
-/* The component style is inserted here. */
 .topnav {
   padding: 1.875rem;
   display: flex;
@@ -9,23 +8,24 @@
   .topnav__search {
     position: relative;
     height: 3.125rem;
-    background: var(--main-bg);
+    background-color: var(--main-bg);
     display: flex;
     align-items: center;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     overflow: hidden;
 
-    input {
+    > input {
       height: 100%;
       width: 100%;
       padding: 0.625rem 3.75rem 0.625rem 1.25rem;
       font-size: 1rem;
-      color: var(--txt-white);
-      background: var(--main-bg);
+      border-radius: var(--border-radius);
+      color: var(--txt-color);
+      background-color: var(--main-bg);
     }
 
-    i {
+    > i {
       font-size: 1.5rem;
       position: absolute;
       right: 1.25rem;
@@ -38,6 +38,43 @@
 
     .topnav__right-item ~ .topnav__right-item {
       margin-left: 1.875rem;
+    }
+  }
+
+  .notification-item {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+
+    &:hover {
+      background-color: var(--second-bg);
+    }
+
+    > i {
+      margin-right: 1.25rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .topnav__right-user {
+    display: flex;
+    align-items: center;
+
+    .topnav__right-user__image {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 0.625rem;
+
+      > img {
+        width: 100%;
+      }
+    }
+
+    .topnav__right-user__name {
+      font-size: 1rem;
+      font-weight: 600;
     }
   }
 }
