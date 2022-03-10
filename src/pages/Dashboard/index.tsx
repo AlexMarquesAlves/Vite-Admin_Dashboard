@@ -163,6 +163,13 @@ const latestOrders = {
   ],
 };
 
+const orderStatus = {
+  shipping: "primary",
+  pending: "warning",
+  paid: "success",
+  refund: "danger",
+};
+
 function Dashboard({ children }: DashboardProps) {
   return (
     <div>
