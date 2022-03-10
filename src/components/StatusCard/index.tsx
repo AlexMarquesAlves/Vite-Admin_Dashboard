@@ -1,0 +1,25 @@
+import { ReactChild, ReactFragment, ReactNode, ReactPortal } from "react";
+
+import "./styles.scss";
+
+interface StatusCardProps {
+  icon: string | undefined;
+  count: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
+  title: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
+}
+
+function StatusCard(props: StatusCardProps) {
+  return (
+    <div className="status-card ">
+      <div className="status-card__icon">
+        <i className={props.icon}></i>
+      </div>
+      <div className="status-card_info">
+        <h4>{props.count}</h4>
+        <span>{props.title}</span>
+      </div>
+    </div>
+  );
+}
+
+export default StatusCard;
