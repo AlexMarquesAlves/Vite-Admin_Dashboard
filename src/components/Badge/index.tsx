@@ -1,18 +1,20 @@
-import { ReactNode } from "react";
+import { ReactChild, ReactFragment, ReactNode, ReactPortal } from "react";
 
 import "./styles.scss";
 
 interface BadgeProps {
-  children?: ReactNode;
+  type: any;
+  content:
+    | boolean
+    | ReactChild
+    | ReactFragment
+    | ReactPortal
+    | null
+    | undefined;
 }
 
-function Badge({ children }: BadgeProps) {
-  return (
-    <>
-      <div>Badge</div>
-      {children}
-    </>
-  );
+function Badge(props: BadgeProps) {
+  return <span className={`badge badge-${props.type}`}>{props.content}</span>;
 }
 
 export default Badge;
