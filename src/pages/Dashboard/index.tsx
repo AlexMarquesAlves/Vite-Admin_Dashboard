@@ -172,6 +172,18 @@ const orderStatus = {
 
 const renderOrderHead = (item, index) => <th key={index}>{item}</th>;
 
+const renderOrderBody = (item, index) => (
+  <tr key={index}>
+    <td>{item.id}</td>
+    <td>{item.user}</td>
+    <td>{item.price}</td>
+    <td>{item.date}</td>
+    <td>
+      <Badge type={orderStatus[item.status]} content={item.status} />
+    </td>
+  </tr>
+);
+
 function Dashboard({ children }: DashboardProps) {
   return (
     <div>
