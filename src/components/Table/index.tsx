@@ -3,7 +3,7 @@ import { SetStateAction, useState } from "react";
 import "./styles.scss";
 
 interface TableProps {
-  limit: any;
+  limit?: any;
   headData: any[];
   renderHead: (arg0: any, arg1: any) => any;
   bodyData: any[];
