@@ -4,6 +4,7 @@ import StatusCard from "../../components/StatusCard";
 import Chart from "react-apexcharts";
 import { Link } from "react-router-dom";
 import Table from "../../components/Table";
+import Badge from "../../components/Badge";
 
 interface DashboardProps {
   children: ReactNode;
@@ -187,13 +188,7 @@ const renderOrderBody = (
       | null
       | undefined;
     date: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
-    status:
-      | boolean
-      | ReactChild
-      | ReactFragment
-      | ReactPortal
-      | null
-      | undefined;
+    status: {} | null | undefined;
   },
   index: Key | null | undefined
 ) => (
@@ -203,7 +198,7 @@ const renderOrderBody = (
     <td>{item.price}</td>
     <td>{item.date}</td>
     <td>
-      <span>{item.status}</span>
+      <Badge type={orderStatus[item.status]} content={item.status} />
     </td>
   </tr>
 );

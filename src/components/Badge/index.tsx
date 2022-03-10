@@ -1,4 +1,4 @@
-import { ReactChild, ReactFragment, ReactNode, ReactPortal } from "react";
+import { ReactChild, ReactFragment, ReactPortal } from "react";
 
 import "./styles.scss";
 
