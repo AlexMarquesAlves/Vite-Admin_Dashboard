@@ -170,6 +170,8 @@ const orderStatus = {
   refund: "danger",
 };
 
+const renderOrderHead = (item, index) => <th key={index}>{item}</th>;
+
 function Dashboard({ children }: DashboardProps) {
   return (
     <div>
