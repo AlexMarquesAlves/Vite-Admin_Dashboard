@@ -170,16 +170,40 @@ const orderStatus = {
   refund: "danger",
 };
 
-const renderOrderHead = (item, index) => <th key={index}>{item}</th>;
+const renderOrderHead = (
+  item: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined,
+  index: Key | null | undefined
+) => <th key={index}>{item}</th>;
 
-const renderOrderBody = (item, index) => (
+const renderOrderBody = (
+  item: {
+    id: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
+    user: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
+    price:
+      | boolean
+      | ReactChild
+      | ReactFragment
+      | ReactPortal
+      | null
+      | undefined;
+    date: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
+    status:
+      | boolean
+      | ReactChild
+      | ReactFragment
+      | ReactPortal
+      | null
+      | undefined;
+  },
+  index: Key | null | undefined
+) => (
   <tr key={index}>
     <td>{item.id}</td>
     <td>{item.user}</td>
     <td>{item.price}</td>
     <td>{item.date}</td>
     <td>
-      <Badge type={orderStatus[item.status]} content={item.status} />
+      <span>{item.status}</span>
     </td>
   </tr>
 );
@@ -239,7 +263,12 @@ function Dashboard({ children }: DashboardProps) {
                 <h3>Latest orders</h3>
               </div>
               <div className="card__body">
-                <Table />
+                <Table
+                  headData={latestOrders.header}
+                  renderHead={(item, index) => renderOrderHead(item, index)}
+                  bodyData={topCustomers.body}
+                  renderBody={(item, index) => renderOrderBody(item, index)}
+                />
               </div>
               <div className="card__footer">
                 <Link to="/">view all</Link>
