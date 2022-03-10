@@ -171,6 +171,19 @@ function Dashboard({ children }: DashboardProps) {
               </div>
             </div>
           </div>
+          <div className="col-8">
+            <div className="card">
+              <div className="card__header">
+                <h3>Latest orders</h3>
+              </div>
+              <div className="card__body">
+                <Table />
+              </div>
+              <div className="card__footer">
+                <Link to="/">view all</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </h2>
     </div>
