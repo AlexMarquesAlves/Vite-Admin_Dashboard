@@ -1,10 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
-
-import "./styles.scss";
-
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-
 import ThemeAction from "../../redux/actions/ThemeAction";
+import "./styles.scss";
 
 const mode_settings = [
   {

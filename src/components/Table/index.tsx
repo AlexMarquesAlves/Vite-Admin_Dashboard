@@ -1,16 +1,13 @@
-import { SetStateAction, useState } from "react";
-
+import React, { useState } from "react";
 import "./styles.scss";
 
-interface TableProps {
-  limit?: any;
-  headData: any[];
+const Table = (props: {
+  limit?: undefined | any;
+  bodyData: string | any;
+  headData: any;
   renderHead: (arg0: any, arg1: any) => any;
-  bodyData: any[];
   renderBody: (arg0: any, arg1: any) => any;
-}
-
-function Table(props: TableProps) {
+}) => {
   const initDataShow =
     props.limit && props.bodyData
       ? props.bodyData.slice(0, Number(props.limit))
@@ -30,7 +27,7 @@ function Table(props: TableProps) {
 
   const [currPage, setCurrPage] = useState(0);
 
-  const selectPage = (page: SetStateAction<number>) => {
+  const selectPage = (page: React.SetStateAction<number>) => {
     const start = Number(props.limit) * page;
     const end = start + Number(props.limit);
 
@@ -46,7 +43,7 @@ function Table(props: TableProps) {
           {props.headData && props.renderHead ? (
             <thead>
               <tr>
-                {props.headData.map((item, index) =>
+                {props.headData.map((item: any, index: any) =>
                   props.renderHead(item, index)
                 )}
               </tr>
@@ -54,7 +51,9 @@ function Table(props: TableProps) {
           ) : null}
           {props.bodyData && props.renderBody ? (
             <tbody>
-              {dataShow.map((item, index) => props.renderBody(item, index))}
+              {dataShow.map((item: any, index: any) =>
+                props.renderBody(item, index)
+              )}
             </tbody>
           ) : null}
         </table>
@@ -76,6 +75,6 @@ function Table(props: TableProps) {
       ) : null}
     </div>
   );
-}
+};
 
 export default Table;

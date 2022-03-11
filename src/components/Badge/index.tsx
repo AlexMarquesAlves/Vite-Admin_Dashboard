@@ -1,20 +1,17 @@
-import { ReactChild, ReactFragment, ReactPortal } from "react";
-
+import React from "react";
 import "./styles.scss";
 
-interface BadgeProps {
+const Badge = (props: {
   type: any;
   content:
     | boolean
-    | ReactChild
-    | ReactFragment
-    | ReactPortal
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
     | null
     | undefined;
-}
-
-function Badge(props: BadgeProps) {
+}) => {
   return <span className={`badge badge-${props.type}`}>{props.content}</span>;
-}
+};
 
 export default Badge;
