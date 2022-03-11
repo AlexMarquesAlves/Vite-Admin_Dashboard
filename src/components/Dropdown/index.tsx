@@ -1,29 +1,5 @@
-import { useRef } from "react";
-import { ReactChild, ReactFragment, ReactNode, ReactPortal } from "react";
-
+import React, { useRef } from "react";
 import "./styles.scss";
-
-interface DropdownProps {
-  children?: ReactNode;
-  icon?: string | undefined;
-  badge?: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined;
-  customToggle?: () =>
-    | boolean
-    | ReactChild
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
-  contentData?: any[];
-  renderItems: (arg0: any, arg1: any) => any;
-  renderFooter?: () =>
-    | boolean
-    | ReactChild
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
-}
 
 const clickOutsideRef = (content_ref: any, toggle_ref: any) => {
   document.addEventListener("mousedown", (e) => {
@@ -31,7 +7,7 @@ const clickOutsideRef = (content_ref: any, toggle_ref: any) => {
     if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
       content_ref.current.classList.toggle("active");
     } else {
-      //user click outside toggle and content
+      // user click outside toggle and content
       if (content_ref.current && !content_ref.current.contains(e.target)) {
         content_ref.current.classList.remove("active");
       }
@@ -39,18 +15,43 @@ const clickOutsideRef = (content_ref: any, toggle_ref: any) => {
   });
 };
 
-function Dropdown(props: DropdownProps) {
+const Dropdown = (props: {
+  icon: string | undefined;
+  badge:
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+  customToggle: () =>
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+  contentData: any[];
+  renderItems: (arg0: any, arg1: any) => any;
+  renderFooter: () =>
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+}) => {
   const dropdown_toggle_el = useRef(null);
   const dropdown_content_el = useRef(null);
 
   clickOutsideRef(dropdown_content_el, dropdown_toggle_el);
 
   return (
-    <div ref={dropdown_toggle_el} className="dropdown">
-      <button className="dropdown__toggle">
+    <div className="dropdown">
+      <button ref={dropdown_toggle_el} className="dropdown__toggle">
         {props.icon ? <i className={props.icon}></i> : ""}
         {props.badge ? (
-          <span className="dropdown__toggle-badge">{props.badge} </span>
+          <span className="dropdown__toggle-badge">{props.badge}</span>
         ) : (
           ""
         )}
@@ -70,6 +71,6 @@ function Dropdown(props: DropdownProps) {
       </div>
     </div>
   );
-}
+};
 
 export default Dropdown;

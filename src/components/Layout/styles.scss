@@ -1,14 +1,13 @@
-/* The component style is inserted here. */
 .layout {
-  color: var(--txt-color);
+    color: var(--txt-color);
+}
 
-  .layout__content {
+.layout__content {
     padding-left: var(--sidebar-width);
-    background: var(--second-bg);
+    background-color: var(--second-bg);
     min-height: 100vh;
+}
 
-    .layout__content-main {
-      padding: 1.875rem;
-    }
-  }
+.layout__content-main {
+    padding: 30px;
 }

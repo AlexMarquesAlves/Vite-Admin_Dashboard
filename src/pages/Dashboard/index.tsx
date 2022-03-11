@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
-
-import { Link } from "react-router-dom";
-
+import React from "react";
 import Chart from "react-apexcharts";
-
 import { useSelector } from "react-redux";
-
-import StatusCard from "../../components/StatusCard";
-
-import Table from "../../components/Table";
-
-import Badge from "../../components/Badge";
-
+import { Link } from "react-router-dom";
 import statusCards from "../../assets/JsonData/status-card-data.json";
+import { Badge, StatusCard, Table } from "../../components";
 
 const chartOptions = {
   series: [

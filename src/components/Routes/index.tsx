@@ -1,19 +1,15 @@
-import { ReactNode } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { Customers, Dashboard, Products } from "../../pages";
 
-import Dashboard from "../../pages/Dashboard";
-import Customers from "../../pages/Customers";
-interface RoutesProps {
-  children?: ReactNode;
-}
-
-function Routes({ children }: RoutesProps) {
+const Routes = () => {
   return (
     <Switch>
       <Route path="/" exact component={Dashboard} />
       <Route path="/customers" component={Customers} />
+      <Route path="/Products" component={Products} />
     </Switch>
   );
-}
+};
 
 export default Routes;

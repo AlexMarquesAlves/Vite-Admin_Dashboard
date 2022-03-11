@@ -1,22 +1,30 @@
-import { ReactNode } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
+import ThemeAction from "../../redux/actions/ThemeAction";
+import { Routes, Sidebar, TopNav } from "../index";
 import "./styles.scss";
 
-import { BrowserRouter, Route } from "react-router-dom";
+const Layout = () => {
+  const themeReducer = useSelector((state) => state.ThemeReducer);
 
-import TopNav from "../TopNav";
-import Sidebar from "../Sidebar";
-import Routes from "../Routes";
+  const dispatch = useDispatch();
 
-interface LayoutProps {
-  children?: ReactNode;
-}
+  useEffect(() => {
+    const themeClass = localStorage.getItem("themeMode", "theme-mode-light");
 
-function Layout({ children }: LayoutProps) {
+    const colorClass = localStorage.getItem("colorMode", "theme-mode-light");
+
+    dispatch(ThemeAction.setMode(themeClass));
+
+    dispatch(ThemeAction.setColor(colorClass));
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Route
-        render={(props): any => (
-          <div className="layout">
+        render={(props) => (
+          <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
             <Sidebar {...props} />
             <div className="layout__content">
               <TopNav />
@@ -29,6 +37,6 @@ function Layout({ children }: LayoutProps) {
       />
     </BrowserRouter>
   );
-}
+};
 
 export default Layout;

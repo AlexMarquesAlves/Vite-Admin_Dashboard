@@ -55,6 +55,14 @@
     transform: scale(3);
 }
 
+.status-card.active::before {
+    transform: scale(3);
+}
+
+.status-card.active {
+    color: var(--txt-white);
+}
+
 .status-card:hover {
     color: var(--txt-white);
 }
